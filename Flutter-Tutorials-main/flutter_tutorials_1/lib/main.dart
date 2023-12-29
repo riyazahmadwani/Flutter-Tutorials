@@ -26,6 +26,24 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    const title = "Basic List";
+    return Scaffold(
+        appBar: AppBar(title: Text(title)),
+        body: ListView(
+          children: [
+            ListTile(
+              leading: Icon(Icons.map),
+              title: Text("map"),
+            ),
+            ListTile(
+              leading: Icon(Icons.phone),
+              title: Text("phone"),
+            ),
+            ListTile(
+              leading: Icon(Icons.album),
+              title: Text("album"),
+            ),
+          ],
+        ));
   }
 }
