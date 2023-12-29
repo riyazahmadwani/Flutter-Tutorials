@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tutorials_1/samplelist.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +22,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
+void navigateToScreen(BuildContext context, Widget destinationWidget) {
+  Navigator.push(context, MaterialPageRoute(builder: (context) {
+    return destinationWidget;
+  }));
+}
+
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
@@ -28,22 +35,14 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     const title = "Basic List";
     return Scaffold(
-        appBar: AppBar(title: Text(title)),
-        body: ListView(
-          children: [
-            ListTile(
-              leading: Icon(Icons.map),
-              title: Text("map"),
-            ),
-            ListTile(
-              leading: Icon(Icons.phone),
-              title: Text("phone"),
-            ),
-            ListTile(
-              leading: Icon(Icons.album),
-              title: Text("album"),
-            ),
-          ],
-        ));
+      body: Center(
+        child: ElevatedButton(
+          child: Text("Sample List"),
+          onPressed: () {
+            navigateToScreen(context, SampleList());
+          },
+        ),
+      ),
+    );
   }
 }
